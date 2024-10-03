@@ -20,7 +20,7 @@ console.log('variable pi = '+ pi)
 document.write('0-la suma de los dos numeros es: '+(num1+num2))
 
 //1-miltiplicar un numero por 10
-let num3 = 10
+let num3 = parseInt(prompt('Ingrese un numero'))
 console.log('variable num3 = '+ num3)
 document.write('<br>1-multiplicar un numero por 10: '+(num3*10))
 
@@ -35,3 +35,12 @@ let ancho=15
 console.log('variable largo = '+ largo)
 console.log('variable ancho = '+ ancho)
 document.write('<br>3-el perimetro es: '+(2*(largo+ancho))+' y el area es: '+(largo*ancho))
+
+//TIPOS DE DATOS
+//-number: 10, 5.5
+//-string: 'hola'
+//-booleano: true, false
+//-array: [1,2,3]
+//-object:
+//-null:
+//-undefined: 
