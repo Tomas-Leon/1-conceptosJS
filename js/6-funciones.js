@@ -33,5 +33,14 @@ function sumar(numero1, numero2){
     return total;
 }
 
+//usar funcion
 const resultado = sumar(7,2)
 document.write(`<p>El resultado de sumar 7+2 es: ${resultado}`)
+//usar funcion
+document.write(`<p>El resultado de sumar 5+3 es: ${sumar(5,3)}`)
+
+//------------------------------------------------------------------------------------
+
+//arrow function(otra nueva forma para declarar funciones)
+/*const sumar = (numero1, numero2) => numero1 + numero2*/
+
