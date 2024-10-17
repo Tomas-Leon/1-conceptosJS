@@ -6,6 +6,15 @@ const precios = [];
 const peliculas = ["shrek 1", "titanic", "cars 1"];
 //------------------------------------------------------------------------------------
 
+//agrego un function
+function mostrarPeliculas (titulo){
+    document.write(`<h2>${titulo}</h2>`);
+document.write("<ul>");
+for (let i = 0; i < peliculas.length; i++) {
+  document.write(`<li>${peliculas[i]}</li>`);
+}
+document.write("</ul>");
+}
 //mostrar un array por pantalla
 document.write(precios + "<br>");
 document.write(peliculas);
@@ -49,14 +58,7 @@ document.write("</ul>");
 peliculas.unshift("interestelar", "los increibles");
 
 //---ver
-document.write(
-  `<h2>Agregamos dos elementos al principio, peliculas: ${peliculas.length}</h2>`
-);
-document.write("<ul>");
-for (let i = 0; i < peliculas.length; i++) {
-  document.write(`<li>${peliculas[i]}</li>`);
-}
-document.write("</ul>");
+mostrarPeliculas(`<h2>Agregamos dos elementos al principio, peliculas: ${peliculas.length}</h2>`)
 
 //------------------------------------------------------------------------------------
 
