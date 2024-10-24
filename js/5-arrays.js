@@ -7,13 +7,13 @@ const peliculas = ["shrek 1", "titanic", "cars 1"];
 //------------------------------------------------------------------------------------
 
 //agrego un function
-function mostrarPeliculas (titulo){
-    document.write(`<h2>${titulo}</h2>`);
-document.write("<ul>");
-for (let i = 0; i < peliculas.length; i++) {
-  document.write(`<li>${peliculas[i]}</li>`);
-}
-document.write("</ul>");
+function mostrarPeliculas(titulo) {
+  document.write(`<h2>${titulo}</h2>`);
+  document.write("<ul>");
+  for (let i = 0; i < peliculas.length; i++) {
+    document.write(`<li>${peliculas[i]}</li>`);
+  }
+  document.write("</ul>");
 }
 //mostrar un array por pantalla
 document.write(precios + "<br>");
@@ -58,7 +58,9 @@ document.write("</ul>");
 peliculas.unshift("interestelar", "los increibles");
 
 //---ver
-mostrarPeliculas(`<h2>Agregamos dos elementos al principio, peliculas: ${peliculas.length}</h2>`)
+mostrarPeliculas(
+  `<h2>Agregamos dos elementos al principio, peliculas: ${peliculas.length}</h2>`
+);
 
 //------------------------------------------------------------------------------------
 
@@ -153,3 +155,61 @@ for (let i = 0; i < peliculas.length; i++) {
 document.write("</ul>");
 
 //------------------------------------------------------------------------------------
+//                            buscar elementos en el array
+//------------------------------------------------------------------------------------
+
+//encontrar un elemento en el array
+
+const encontreShrek1 = peliculas.find(
+  (itemPelicula) => itemPelicula === "shrek 1"
+);
+
+console.log(encontreShrek1);
+
+//en que posicion esta
+
+const posicionShrek1 = peliculas.findIndex((item) => item === "shrek 1");
+
+//if(undefined)
+if (encontreShrek1) {
+  document.write(
+    `<p>la pelicula ${encontreShrek1} se encuentra en la posicion ${posicionShrek1}</p>`
+  );
+} else {
+  document.write("<p>no encontramos la pelicula buscada</p>");
+}
+
+//operador ternario ? :
+//(condicion logica) ? lo que deberia haccer si se cumple la condicion : lo que deberia si no se cumple
+
+document.write(
+  `${
+    encontreShrek1
+      ? `<p>la pelicula ${encontreShrek1} se encuentra en la posicion ${posicionShrek1}</p>`
+      : "<p>no encontramos la pelicula buscada</p>"
+  }`
+);
+
+//si quiero filtrar elementos de un array
+
+const sagaCars = peliculas.filter((pelicula) =>
+  pelicula.toLocaleLowerCase().includes("cars")
+);
+
+console.log(sagaCars);
+
+//------------------------------------------------------------------------------------
+//                            Mostrar cualquier arreglo
+//------------------------------------------------------------------------------------
+
+//si quiero mostrar cualquier arreglo en una lista ordenada
+
+function mostrarArreglo(arreglo, titulo) {
+  document.write(`<h2>${titulo}</h2>`);
+  document.write(`<ol>`);
+  //map
+  arreglo.map((item) => document.write(`<li>${item}</li>`));
+  document.write("</ol>");
+}
+
+mostrarArreglo(sagaCars, "peliculas de cars");
