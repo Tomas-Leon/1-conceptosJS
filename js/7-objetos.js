@@ -46,3 +46,7 @@ document.write(`<p>Album de la cancion agregada: ${cancion.album}</p>`);
 //usar metodo
 cancion.reproducir();
 cancion.stop();
+
+//preguntar si existe la propiedad
+console.log(cancion.hasOwnProperty('anioLanzamiento'))
+console.log(cancion.hasOwnProperty('album'))
