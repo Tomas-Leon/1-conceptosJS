@@ -2,7 +2,7 @@
 //nombre, apellido, mail, tel, ciudad, pais, dni
 
 //alumno
-//comision, tipo, certificacion, asistencia, notas, promedio
+//comision, certificacion, asistencia, notas, promedio
 
 class Persona {
   //propiedades privadas
@@ -51,6 +51,70 @@ class Persona {
   }
 }
 
+class Alumno extends Persona {
+  #comision;
+  #certificacion;
+  constructor(
+    nombre,
+    apellido,
+    mail,
+    telefono,
+    ciudad,
+    pais,
+    dni,
+    comision,
+    certificacion
+  ) {
+    //invoca al constructor de persona
+    super(nombre, apellido, mail, telefono, ciudad, pais, dni);
+    this.#comision = comision;
+    this.#certificacion = certificacion;
+    this.asistencia = 0;
+    this.notas = [];
+    this.promedio = 0;
+  }
+
+  get getComision() {
+    return this.#comision;
+  }
+
+  set setComision(nuevaComision) {
+    this.#comision = nuevaComision;
+  }
+  get getCertificacion() {
+    return this.#certificacion;
+  }
+
+  set setCertificacion(nuevaCertificacion) {
+    this.#certificacion = nuevaCertificacion;
+  }
+
+  //puedo agregar mis metodos
+  obtenerPromedios() {
+    let suma = 0;
+    for (let i = 0; i < this.notas.length; i++) {
+      suma = suma + this.notas[i];
+    }
+    return suma / this.notas.length;
+  }
+//polimorfismo
+  mostrarDatos(){
+    document.write(`<ul>
+      <li>Nombre: ${this.nombre}</li>
+      <li>Apellido: ${this.apellido}</li>
+      <li>Mail: ${this.mail}</li>
+      <li>Telefono: ${this.telefono}</li>
+      <li>Ciudad: ${this.ciudad}</li>
+      <li>Pais: ${this.pais}</li>
+      <li>DNI: ${this.dni}</li>
+      <li>Comision: ${this.getComision}</li>
+      <li>Certificacion: ${this.getCertificacion}</li>
+      <li>Notas: ${this.notas}</li>
+      <li>Promedio: ${this.promedio}</li>
+      </ul>`);
+  }
+}
+
 //usar la clase persona
 const cristian = new Persona(
   "cristian",
@@ -84,3 +148,34 @@ dana.apellido = "Albornoz";
 document.write(
   `<p>Mostrar el nombre y apellido: ${dana.nombre}, ${dana.apellido}</p>`
 );
+
+document.write(`<h2>Usando la clase alumno</h2>`);
+
+const fabricio = new Alumno(
+  "Fabricio",
+  "Corrizo",
+  "fabricio@mail.com",
+  "434234234",
+  "San miguel de tucuman",
+  "Argentina",
+  "34444444",
+  "react2",
+  "HTML,CSS,Bootstrap"
+);
+
+fabricio.mostrarDatos();
+document.write(
+  `<p>Comision actual: ${fabricio.getComision}</p>`
+);
+
+fabricio.setComision = 'comision react2'
+document.write(
+  `<p>Comision nueva: ${fabricio.getComision}</p>`
+);
+document.write(
+  `<p>Certificacion: ${fabricio.getCertificacion}</p>`
+);
+
+//agregar notas a fabricio
+fabricio.notas.push(5,4,6)
+document.write(`<p>Alumno: ${fabricio.nombre}, ${fabricio.apellido} promedio actual: ${fabricio.obtenerPromedios()}`)
